@@ -1,15 +1,19 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(GameWidget(game: MyGame()));
 }
 
-class MyGame extends FlameGame {
+class MyGame extends FlameGame with HasTappables {
   SpriteComponent girl = SpriteComponent();
   SpriteComponent boy = SpriteComponent();
   SpriteComponent background = SpriteComponent();
+  DialogButton dialogButton = DialogButton();
+  final Vector2 buttonSize = Vector2(50.0, 50.0);
+
   final double characterSize = 200.0;
   bool turnAway = false;
   int dialogLevel = 0;
@@ -44,6 +48,12 @@ class MyGame extends FlameGame {
       ..flipHorizontally();
 
     add(boy);
+
+    dialogButton
+      ..sprite = await loadSprite('next_button.png')
+      ..size = buttonSize
+      ..position =
+          Vector2(size[0] - buttonSize[0] - 10, size[1] - buttonSize[1] - 10);
   }
 
   @override
@@ -89,7 +99,21 @@ class MyGame extends FlameGame {
       case 3:
         dialogTextPaint.render(canvas, 'Keiko: What about the baby?',
             Vector2(10, size[1] - 100.0));
+        add(dialogButton);
         break;
+    }
+  }
+}
+
+class DialogButton extends SpriteComponent with Tappable {
+  @override
+  bool onTapDown(TapDownInfo event) {
+    try {
+      print('we will move to the next screen');
+      return true;
+    } catch (error) {
+      print(error);
+      return false;
     }
   }
 }
