@@ -12,5 +12,5 @@ Scene 2 - dialog changes with button press
 
 ## Credits
 
-* CarlMary character graphics
-* GameArt2d icon buttons
+* CarlMary character graphics - https://carlmary.jp/gallery/materials-300/ - licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Creative Commons Attribution
+* GameArt2d icon buttons - https://www.gameart2d.com/freebies.html - licensed under [CC0 1.0 Universal - Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/)
