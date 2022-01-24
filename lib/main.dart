@@ -20,7 +20,8 @@ class MyGame extends FlameGame with HasTappables {
   int dialogLevel = 0;
   int sceneLevel = 1;
 
-  TextPaint dialogTextPaint = TextPaint(style: const TextStyle(fontSize: 36));
+  TextPaint dialogTextPaint =
+      TextPaint(style: const TextStyle(fontSize: 36, color: Colors.white));
 
   @override
   Future<void> onLoad() async {
