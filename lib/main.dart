@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +21,8 @@ class MyGame extends FlameGame with HasTappables {
   int dialogLevel = 0;
   int sceneLevel = 1;
 
+  bool musicPlaying = false;
+
   TextPaint dialogTextPaint =
       TextPaint(style: const TextStyle(fontSize: 36, color: Colors.white));
 
@@ -29,6 +32,9 @@ class MyGame extends FlameGame with HasTappables {
     final screenWidth = size[0];
     final screenHeight = size[1];
     const textBoxHeight = 100;
+
+    // initialize flame audio background music
+    FlameAudio.bgm.initialize();
 
     // setup background2
     background2
@@ -93,6 +99,12 @@ class MyGame extends FlameGame with HasTappables {
     super.render(canvas);
     switch (dialogLevel) {
       case 1:
+        //play music
+        if (!musicPlaying) {
+          FlameAudio.bgm.play('music.ogg');
+          musicPlaying = true;
+        }
+
         dialogTextPaint.render(
             canvas,
             'Keiko: Ken, don\'t'
