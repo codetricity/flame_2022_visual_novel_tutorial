@@ -1,5 +1,7 @@
 # Flutter Flame Introduction 2022
 
+[Web Demo](https://codetricity.github.io/flame_2022_visual_novel_tutorial/)
+
 https://youtube.com/playlist?list=PLxvyAnoL-vu6WtCSTlNXaJLx0Pgscq4-D
 
 Scene 1 - dialog automatically changes
